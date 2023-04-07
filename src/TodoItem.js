@@ -6,11 +6,11 @@ export default function TodoItem(props) {
       <input
         id={props.id}
         type="checkbox"
-        defaultChecked={props.completed}
+        checked={props.isCompleted}
         onChange={() => props.toggleTaskCompleted(props.id)}
       />
       <label className="todo-label" htmlFor={props.id}>
-        {props.name}
+        {props.title}
       </label>
     </div>
   );
