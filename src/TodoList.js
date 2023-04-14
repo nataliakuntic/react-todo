@@ -6,5 +6,5 @@ export default function TodoList(props) {
     <TodoItem id={todo.id} title={todo.title} isCompleted={todo.isCompleted} />
   ));
 
-  return <div className="taskList">{taskList}</div>;
+  return <div className="task-list">{taskList}</div>;
 }

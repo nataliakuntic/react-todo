@@ -5,7 +5,7 @@ export default function TodoApp(props) {
   const [todos, setTodos] = useState([]);
 
   return (
-    <div className="todoList">
+    <div className="todo-list">
       <TodoList todos={todos} />
     </div>
   );
