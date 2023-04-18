@@ -11,10 +11,20 @@ export default function TodoApp(props) {
     setTodos([...todos, newTodo]);
   };
 
+  function toggleTodoCompleted(id) {
+    const updatedTodos = todos.map(todo => {
+      if (id === todo.id) {
+        return { ...todo, isCompleted: !todo.isCompleted };
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  }
+
   return (
     <div className="todo-list">
       <AddTodo addTodo={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} toggleTodoCompleted={toggleTodoCompleted} />
     </div>
   );
 }

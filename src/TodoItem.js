@@ -1,16 +1,19 @@
 import React from 'react';
 
 export default function TodoItem(props) {
+  //   const { todo, toggleTodoCompleted } = props;
+  const todo = props.todo;
+  const toggleTodoCompleted = props.toggleTodoCompleted;
   return (
     <div className="checkbox">
       <input
-        id={props.id}
+        id={todo.id}
         type="checkbox"
-        checked={props.isCompleted}
-        onChange={() => props.toggleTaskCompleted(props.id)}
+        checked={todo.isCompleted}
+        onChange={() => toggleTodoCompleted(todo.id)}
       />
-      <label className="todo-label" htmlFor={props.id}>
-        {props.title}
+      <label className="todo-label" htmlFor={todo.id}>
+        {todo.title}
       </label>
     </div>
   );
