@@ -35,7 +35,7 @@ export default function TodoApp(props) {
     <FilterButton
       key={title}
       name={title}
-      isPressed={title === filter}
+      isActive={title === filter}
       setFilter={setFilter}
     />
   ));
