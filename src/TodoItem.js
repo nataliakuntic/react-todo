@@ -1,9 +1,9 @@
 import React from 'react';
 
 export default function TodoItem(props) {
-  //   const { todo, toggleTodoCompleted } = props;
-  const todo = props.todo;
-  const toggleTodoCompleted = props.toggleTodoCompleted;
+  const { todo, toggleTodoCompleted, deleteTodo } = props;
+  // const todo = props.todo;
+  // const toggleTodoCompleted = props.toggleTodoCompleted;
   return (
     <div className="checkbox">
       <input
@@ -15,6 +15,13 @@ export default function TodoItem(props) {
       <label className="todo-label" htmlFor={todo.id}>
         {todo.title}
       </label>
+      <button
+        type="button"
+        className="btn-danger"
+        onClick={() => deleteTodo(todo.id)}
+      >
+        Delete
+      </button>
     </div>
   );
 }

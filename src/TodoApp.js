@@ -31,6 +31,11 @@ export default function TodoApp(props) {
     setTodos(updatedTodos);
   }
 
+  function deleteTodo(id) {
+    const remainingTasks = todos.filter(todo => id !== todo.id);
+    setTodos(remainingTasks);
+  }
+
   const filterList = FILTER_NAMES.map(title => (
     <FilterButton
       key={title}
@@ -48,6 +53,7 @@ export default function TodoApp(props) {
         todos={todos}
         toggleTodoCompleted={toggleTodoCompleted}
         filter={FILTER_MAP[filter]}
+        deleteTodo={deleteTodo}
       />
     </div>
   );
