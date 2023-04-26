@@ -21,6 +21,16 @@ export default function TodoApp(props) {
     setTodos([...todos, newTodo]);
   };
 
+  function updateTodoTitle(id, newTitle) {
+    const updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        return { ...todo, title: newTitle };
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  }
+
   function toggleTodoCompleted(id) {
     const updatedTodos = todos.map(todo => {
       if (id === todo.id) {
@@ -54,6 +64,7 @@ export default function TodoApp(props) {
         toggleTodoCompleted={toggleTodoCompleted}
         filter={FILTER_MAP[filter]}
         deleteTodo={deleteTodo}
+        updateTodoTitle={updateTodoTitle}
       />
     </div>
   );

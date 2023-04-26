@@ -10,6 +10,7 @@ export default function TodoList(props) {
         todo={todo}
         toggleTodoCompleted={props.toggleTodoCompleted}
         deleteTodo={props.deleteTodo}
+        updateTodoTitle={props.updateTodoTitle}
       />
     ));
   return <div className="task-list">{taskList}</div>;
