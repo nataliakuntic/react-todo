@@ -23,6 +23,11 @@ export default function TodoItem(props) {
     setNewTitle(e.target.value);
   }
 
+  function handleBlur(e) {
+    setNewTitle(todo.title);
+    setIsEditing(false);
+  }
+
   const editingTemplate = (
     <input
       type="text"
@@ -30,6 +35,7 @@ export default function TodoItem(props) {
       value={newTitle}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
+      onBlur={handleBlur}
     />
   );
 

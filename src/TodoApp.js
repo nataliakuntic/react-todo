@@ -25,6 +25,10 @@ export default function TodoApp(props) {
     const updatedTodos = todos.map(todo => {
       if (todo.id === id) {
         return { ...todo, title: newTitle };
+        // { ...todo } is a spread operator that 1) creates a new object
+        // 2) copies all the properties from the todo object.
+        // Then, the title property is overwritten with the new title value.
+        // (it has all the properties copied from the original todo, but has a new title)
       }
       return todo;
     });
