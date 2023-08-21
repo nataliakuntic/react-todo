@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoItem from './TodoItem';
+import './index.css';
 
 export default function TodoList(props) {
   const taskList = props.todos

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './index.css';
 
 export default function TodoItem(props) {
   const { todo, toggleTodoCompleted, deleteTodo, updateTodoTitle } = props;
@@ -41,17 +42,16 @@ export default function TodoItem(props) {
 
   const viewTemplate = (
     <div className="checkbox">
-      <input
-        id={todo.id}
-        type="checkbox"
-        checked={todo.isCompleted}
-        onChange={() => toggleTodoCompleted(todo.id)}
-      />
-      <label
-        className="todo-label"
-        htmlFor={todo.id}
-        onDoubleClick={handleEdit}
-      >
+      <div className="checkbox-input">
+        <input
+          id={todo.id}
+          type="checkbox"
+          checked={todo.isCompleted}
+          onChange={() => toggleTodoCompleted(todo.id)}
+        />
+        <label htmlFor={todo.id} className="checkbox-label"></label>
+      </div>
+      <label className="todo-label" htmlFor={todo.id} onDoubleClick={handleEdit}>
         {todo.title}
       </label>
       <button
@@ -63,6 +63,7 @@ export default function TodoItem(props) {
       </button>
     </div>
   );
+  
 
   return (
     <div className="todo-item">

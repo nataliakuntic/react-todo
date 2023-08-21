@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './index.css';
 
 export default function AddTodo(props) {
   const [title, setTitle] = useState(''); //initial state
@@ -14,11 +15,11 @@ export default function AddTodo(props) {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className="label-wrapper">
+      <h1 className="label-wrapper">
         <label htmlFor="new-todo-input" className="label-todo">
           What needs to be done?
         </label>
-      </h2>
+      </h1>
       <input
         type="text"
         id="new-todo-input"

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import TodoList from './TodoList';
 import AddTodo from './AddTodo';
 import FilterButton from './FilterButton';
+import './index.css';
 
 const FILTER_MAP = {
   all: () => true,
@@ -10,7 +11,7 @@ const FILTER_MAP = {
   completed: todo => todo.isCompleted,
 };
 
-const FILTER_NAMES = Object.keys(FILTER_MAP);
+export const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 export default function TodoApp(props) {
   const [todos, setTodos] = useState([]);
@@ -50,12 +51,14 @@ export default function TodoApp(props) {
     setTodos(remainingTasks);
   }
 
-  const filterList = FILTER_NAMES.map(title => (
+  const filterList = FILTER_NAMES.map((title, index) => (
     <FilterButton
       key={title}
       name={title}
+      index={index} // Pass the index as a prop
       isActive={title === filter}
       setFilter={setFilter}
+      isFirstButton={index === 0} // Pass the isFirstButton prop
     />
   ));
 
