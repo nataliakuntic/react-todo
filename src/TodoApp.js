@@ -11,7 +11,7 @@ const FILTER_MAP = {
   completed: todo => todo.isCompleted,
 };
 
-export const FILTER_NAMES = Object.keys(FILTER_MAP);
+const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 export default function TodoApp(props) {
   const [todos, setTodos] = useState([]);
@@ -51,21 +51,21 @@ export default function TodoApp(props) {
     setTodos(remainingTasks);
   }
 
-  const filterList = FILTER_NAMES.map((title, index) => (
+  const filterList = FILTER_NAMES.map(title => (
     <FilterButton
       key={title}
       name={title}
-      index={index} // Pass the index as a prop
       isActive={title === filter}
       setFilter={setFilter}
-      isFirstButton={index === 0} // Pass the isFirstButton prop
     />
   ));
 
   return (
     <div className="todo-list">
       <AddTodo addTodo={addTodo} />
+      <div className="filter-buttons">
       {filterList}
+      </div>
       <TodoList
         todos={todos}
         toggleTodoCompleted={toggleTodoCompleted}

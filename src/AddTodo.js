@@ -15,11 +15,13 @@ export default function AddTodo(props) {
   }
   return (
     <form onSubmit={handleSubmit}>
+      <div className="add-todo-container">
       <h1 className="label-wrapper">
         <label htmlFor="new-todo-input" className="label-todo">
           What needs to be done?
         </label>
       </h1>
+      <div className="input-container">
       <input
         type="text"
         id="new-todo-input"
@@ -32,6 +34,8 @@ export default function AddTodo(props) {
       <button type="submit" className="btn-submit">
         Add
       </button>
+      </div>
+      </div>
     </form>
   );
 }

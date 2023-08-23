@@ -71,6 +71,12 @@ body {
 }
 /*END RESETS*/
 
+.add-todo-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 h1 {
     color: white;
     font-size: 3em;
@@ -78,24 +84,42 @@ h1 {
     margin-bottom: 1em;
 }
 
+.input-container {
+  display: flex;
+align-items: center;
+width: calc(100% - 1em);
+}
 
+input[type="text"] {
+  flex: 1;
+  height: 2em;
+  width: 100%;
+}
 
+.filter-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: calc(100% - 1em);
+  gap: 0.6em;
+}
+
+.filter-buttons button {
+  flex: 1;
+  margin-bottom: 1.5em;
+}
 button {
     padding: 0.4em;
-    margin: 0.3em;
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(220,181,204,1) 100%);
     border: 0.5px solid grey;
     border-radius: 10px;
+  
 }
 
-.first-button {
-    margin-left: 0; /* Remove left margin */
-  }
-
-  .button-with-margin {
-    margin-bottom: 2.5em; /* Adjust the margin as needed */
-  }
-
+.checkbox {
+  display: flex;
+  align-items: center;
+}
 .btn-submit, .btn-danger {
     padding: 0.4em;
     margin: 0.3em;
@@ -104,11 +128,15 @@ button {
     border-radius: 10px;
 }
 
+.btn-danger {
+  margin-left: 0.5em;
+}
 .todo-label {
-    margin-left: 0.3em;
     font-size: 1.5em;
     color: white;
 }
+
+
 
 /* Style the checkbox container */
 .checkbox-input {
@@ -144,9 +172,4 @@ button {
     line-height: 16px;
     color: white;
     background-color: rgba(32,191,150,1);
-  }
-  
-  input[type="text"] {
-    height: 2em;
-    width: 20em;
   }

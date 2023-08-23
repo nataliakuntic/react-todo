@@ -37,6 +37,7 @@ export default function TodoItem(props) {
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       onBlur={handleBlur}
+      style={{ width: 'calc(100% - 1em)' }}
     />
   );
 
