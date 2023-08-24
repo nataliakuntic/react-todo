@@ -63,7 +63,7 @@ body {
   background-image: linear-gradient(90deg, rgba(119,0,255,1) 39%, rgba(0,212,255,1) 100%);
   color: #4d4d4d;
 }
-@media screen and (min-width: 620px) {
+@media screen and (min-width: 680px) {
   body {
     font-size: 1.9rem;
     line-height: 1.31579;
@@ -172,4 +172,12 @@ button {
     line-height: 16px;
     color: white;
     background-color: rgba(32,191,150,1);
+  }
+
+  @media screen and (max-width: 679px) {
+    body {
+    margin-left: 0.5em;
+      font-size: 1.5rem;
+      line-height: 1.31579;
+    }
   }
