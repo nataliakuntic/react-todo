@@ -34,5 +34,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "prettier": {
+    "overrides": [{
+      "files": "*.css",
+      "options": {
+        "tabWidth": 4,
+        "singleQuote": false
+      }
+    }]
   }
 }
