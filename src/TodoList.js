@@ -4,7 +4,7 @@ import TodoItem from './TodoItem';
 export default function TodoList(props) {
   const taskList = props.todos
     .filter(props.filter)
-    .map(todo => (
+    .map((todo) => (
       <TodoItem
         key={todo.id}
         todo={todo}

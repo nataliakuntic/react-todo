@@ -51,7 +51,11 @@ export default function TodoItem(props) {
         />
         <label htmlFor={todo.id} className="checkbox-label"></label>
       </div>
-      <label className="todo-label" htmlFor={todo.id} onDoubleClick={handleEdit}>
+      <label
+        className="todo-label"
+        htmlFor={todo.id}
+        onDoubleClick={handleEdit}
+      >
         {todo.title}
       </label>
       <button
@@ -63,7 +67,6 @@ export default function TodoItem(props) {
       </button>
     </div>
   );
-  
 
   return (
     <div className="todo-item">
