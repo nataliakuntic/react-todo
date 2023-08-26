@@ -7,8 +7,8 @@ import './index.css';
 
 const FILTER_MAP = {
   all: () => true,
-  pending: todo => !todo.isCompleted,
-  completed: todo => todo.isCompleted,
+  pending: (todo) => !todo.isCompleted,
+  completed: (todo) => todo.isCompleted,
 };
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
@@ -17,13 +17,13 @@ export default function TodoApp(props) {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
 
-  const addTodo = title => {
+  const addTodo = (title) => {
     const newTodo = { id: `todo-${nanoid()}`, title, isCompleted: false };
     setTodos([...todos, newTodo]);
   };
 
   function updateTodoTitle(id, newTitle) {
-    const updatedTodos = todos.map(todo => {
+    const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
         return { ...todo, title: newTitle };
         // { ...todo } is a spread operator that 1) creates a new object
@@ -37,7 +37,7 @@ export default function TodoApp(props) {
   }
 
   function toggleTodoCompleted(id) {
-    const updatedTodos = todos.map(todo => {
+    const updatedTodos = todos.map((todo) => {
       if (id === todo.id) {
         return { ...todo, isCompleted: !todo.isCompleted };
       }
@@ -47,11 +47,11 @@ export default function TodoApp(props) {
   }
 
   function deleteTodo(id) {
-    const remainingTasks = todos.filter(todo => id !== todo.id);
+    const remainingTasks = todos.filter((todo) => id !== todo.id);
     setTodos(remainingTasks);
   }
 
-  const filterList = FILTER_NAMES.map(title => (
+  const filterList = FILTER_NAMES.map((title) => (
     <FilterButton
       key={title}
       name={title}
@@ -63,9 +63,7 @@ export default function TodoApp(props) {
   return (
     <div className="todo-list">
       <AddTodo addTodo={addTodo} />
-      <div className="filter-buttons">
-         {filterList}
-      </div>
+      <div className="filter-buttons">{filterList}</div>
       <TodoList
         todos={todos}
         toggleTodoCompleted={toggleTodoCompleted}

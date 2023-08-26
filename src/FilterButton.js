@@ -1,12 +1,8 @@
 import React from 'react';
 
 function FilterButton(props) {
-
-
   return (
-   
- 
-    <button 
+    <button
       type="button"
       aria-pressed={props.isActive}
       onClick={() => props.setFilter(props.name)}
@@ -15,8 +11,6 @@ function FilterButton(props) {
       <span>{props.name}</span>
       <span> tasks</span>
     </button>
-    
-    
   );
 }
 
