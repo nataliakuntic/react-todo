@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import TodoList from './TodoList';
 import AddTodo from './AddTodo';
 import FilterButton from './FilterButton';
+import './index.css';
 
 const FILTER_MAP = {
   all: () => true,
@@ -62,7 +63,9 @@ export default function TodoApp(props) {
   return (
     <div className="todo-list">
       <AddTodo addTodo={addTodo} />
-      {filterList}
+      <div className="filter-buttons">
+         {filterList}
+      </div>
       <TodoList
         todos={todos}
         toggleTodoCompleted={toggleTodoCompleted}
