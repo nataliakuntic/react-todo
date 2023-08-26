@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './index.css';
 
 export default function TodoItem(props) {
   const { todo, toggleTodoCompleted, deleteTodo, updateTodoTitle } = props;

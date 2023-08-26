@@ -64,7 +64,7 @@ export default function TodoApp(props) {
     <div className="todo-list">
       <AddTodo addTodo={addTodo} />
       <div className="filter-buttons">
-      {filterList}
+         {filterList}
       </div>
       <TodoList
         todos={todos}
