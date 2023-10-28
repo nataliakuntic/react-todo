@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function TodoItem(props) {
   const { todo, toggleTodoCompleted, deleteTodo, updateTodoTitle } = props;
@@ -12,7 +12,7 @@ export default function TodoItem(props) {
   } //toggles onDoubleClick as it's used in viewTemplate
 
   function handleKeyDown(e) {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       updateTodoTitle(todo.id, newTitle);
       setIsEditing(false);
     }
@@ -36,7 +36,7 @@ export default function TodoItem(props) {
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       onBlur={handleBlur}
-      style={{ width: 'calc(100% - 1em)' }}
+      style={{ width: "calc(100% - 1em)" }}
     />
   );
 

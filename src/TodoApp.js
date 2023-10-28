@@ -1,9 +1,9 @@
-import { nanoid } from 'nanoid';
-import React, { useState } from 'react';
-import TodoList from './TodoList';
-import AddTodo from './AddTodo';
-import FilterButton from './FilterButton';
-import './index.css';
+import { nanoid } from "nanoid";
+import React, { useState } from "react";
+import TodoList from "./TodoList";
+import AddTodo from "./AddTodo";
+import FilterButton from "./FilterButton";
+import "./index.css";
 
 const FILTER_MAP = {
   all: () => true,
@@ -15,7 +15,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 export default function TodoApp(props) {
   const [todos, setTodos] = useState([]);
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState("all");
 
   const addTodo = (title) => {
     const newTodo = { id: `todo-${nanoid()}`, title, isCompleted: false };

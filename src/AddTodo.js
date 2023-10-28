@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 export default function AddTodo(props) {
-  const [title, setTitle] = useState(''); //initial state
+  const [title, setTitle] = useState(""); //initial state
 
   function handleChange(e) {
     setTitle(e.target.value);
@@ -10,7 +10,7 @@ export default function AddTodo(props) {
   function handleSubmit(e) {
     e.preventDefault();
     props.addTodo(title);
-    setTitle('');
+    setTitle("");
   }
   return (
     <form onSubmit={handleSubmit}>
