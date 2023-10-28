@@ -13,7 +13,7 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-export default function TodoApp(props) {
+export default function TodoApp() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
 
@@ -22,7 +22,7 @@ export default function TodoApp(props) {
     setTodos([...todos, newTodo]);
   };
 
-  function updateTodoTitle(id, newTitle) {
+  function editTodoTitle(id, newTitle) {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
         return { ...todo, title: newTitle };
@@ -47,8 +47,8 @@ export default function TodoApp(props) {
   }
 
   function deleteTodo(id) {
-    const remainingTasks = todos.filter((todo) => id !== todo.id);
-    setTodos(remainingTasks);
+    const remainingTodos = todos.filter((todo) => id !== todo.id);
+    setTodos(remainingTodos);
   }
 
   const filterList = FILTER_NAMES.map((title) => (
@@ -65,11 +65,10 @@ export default function TodoApp(props) {
       <AddTodo addTodo={addTodo} />
       <div className="filter-buttons">{filterList}</div>
       <TodoList
-        todos={todos}
+        todos={todos.filter(FILTER_MAP[filter])}
         toggleTodoCompleted={toggleTodoCompleted}
-        filter={FILTER_MAP[filter]}
         deleteTodo={deleteTodo}
-        updateTodoTitle={updateTodoTitle}
+        editTodoTitle={editTodoTitle}
       />
     </div>
   );

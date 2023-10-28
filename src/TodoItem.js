@@ -1,31 +1,35 @@
 import React, { useState } from "react";
 
-export default function TodoItem(props) {
-  const { todo, toggleTodoCompleted, deleteTodo, updateTodoTitle } = props;
-  // const todo = props.todo;
-  // const toggleTodoCompleted = props.toggleTodoCompleted;
+export default function TodoItem({
+  todo,
+  toggleTodoCompleted,
+  deleteTodo,
+  editTodoTitle,
+}) {
   const [isEditing, setIsEditing] = useState(false); //if todo item is in the edit mode or not
   const [newTitle, setNewTitle] = useState(todo.title); //keeping track of the new title user is editing
 
-  function handleEdit() {
+  // toggles onDoubleClick as it's used in viewTemplate
+  function startTitleEdit() {
     setIsEditing(true);
-  } //toggles onDoubleClick as it's used in viewTemplate
-
-  function handleKeyDown(e) {
-    if (e.key === "Enter") {
-      updateTodoTitle(todo.id, newTitle);
-      setIsEditing(false);
-    }
-  } //event listener to the input field if "Enter" is pressed (in editingTemplate).
-  //When "Enter" is pressed, we call updateTodoTitle with the new title and set the editing mode back to "false"
-
-  function handleChange(e) {
-    setNewTitle(e.target.value);
   }
 
-  function handleBlur(e) {
+  // event listener to the input field if "Enter" is pressed (in editingTemplate).
+  // When "Enter" is pressed, we call updateTodoTitle with the new title and set the editing mode back to "false"
+  function finishTitleEdit(e) {
+    if (e.key === "Enter") {
+      editTodoTitle(todo.id, newTitle);
+      setIsEditing(false);
+    }
+  }
+
+  function abortTitleEdit(e) {
     setNewTitle(todo.title);
     setIsEditing(false);
+  }
+
+  function handleTitleChange(e) {
+    setNewTitle(e.target.value);
   }
 
   const editingTemplate = (
@@ -33,9 +37,9 @@ export default function TodoItem(props) {
       type="text"
       className="edit-input"
       value={newTitle}
-      onChange={handleChange}
-      onKeyDown={handleKeyDown}
-      onBlur={handleBlur}
+      onChange={handleTitleChange}
+      onKeyDown={finishTitleEdit}
+      onBlur={abortTitleEdit}
       style={{ width: "calc(100% - 1em)" }}
     />
   );
@@ -54,7 +58,7 @@ export default function TodoItem(props) {
       <label
         className="todo-label"
         htmlFor={todo.id}
-        onDoubleClick={handleEdit}
+        onDoubleClick={startTitleEdit}
       >
         {todo.title}
       </label>
